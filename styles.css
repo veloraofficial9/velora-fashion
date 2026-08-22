@@ -1,0 +1,136 @@
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  background:#0f1115;
+  color:#f5f5f5
+}
+a{text-decoration:none;color:inherit}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 6vw;
+  background:rgba(15,17,21,.92);
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(10px)
+}
+.brand{
+  font-weight:800;
+  letter-spacing:3px
+}
+nav{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  flex-wrap:wrap
+}
+.cart-btn,.btn{
+  padding:12px 18px;
+  border-radius:999px
+}
+.cart-btn,.secondary{
+  border:1px solid #2f3440
+}
+.primary{
+  background:#ffffff;
+  color:#0f1115
+}
+.hero{
+  display:grid;
+  grid-template-columns:1.4fr .8fr;
+  gap:24px;
+  padding:80px 6vw;
+  align-items:center
+}
+.eyebrow{
+  color:#d3b37d;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:.8rem
+}
+h1,h2,h3{
+  margin:0 0 12px
+}
+.hero-text,.section p{
+  color:#c8ccd6;
+  line-height:1.6
+}
+.hero-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:24px
+}
+.hero-card,.product-card,.info-box,.checkout-card{
+  background:#151922;
+  border:1px solid #252b38;
+  border-radius:24px;
+  padding:24px
+}
+.section{
+  padding:0 6vw 60px
+}
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px
+}
+.tag{
+  display:inline-block;
+  background:#23283a;
+  color:#d7dcff;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:.8rem;
+  margin-bottom:18px
+}
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  align-items:center
+}
+.contact{
+  padding-bottom:90px
+}
+.checkout-wrap{
+  padding:40px 6vw 80px
+}
+.grid2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-bottom:14px
+}
+input,select,textarea,button{
+  width:100%;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid #2a3040;
+  background:#0f1115;
+  color:#f5f5f5;
+  font:inherit
+}
+textarea{
+  min-height:120px;
+  resize:vertical;
+  margin-bottom:14px
+}
+.message{
+  margin-top:16px;
+  padding:14px;
+  border-radius:14px;
+  background:#10281b;
+  border:1px solid #1d5d3a;
+  display:none
+}
+@media(max-width:780px){
+  .hero,.split,.grid2{
+    grid-template-columns:1fr
+  }
+  nav{
+    gap:10px
+  }
+}
