@@ -1,1 +1,49 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VELORA — Defined by Elegance</title><link rel="stylesheet" href="style.css"></head><body><header><a class="logo" href="#">VELORA</a><nav><a href="#new">New Arrivals</a><a href="#shop">Shop</a><a href="#about">About</a><a href="#contact">Contact</a></nav><button class="cart" onclick="toggleCart()">Bag (<span id="count">0</span>)</button></header><main><section class="hero"><div><p class="eyebrow">THE NEW STANDARD OF MEN'S WEAR</p><h1>Defined<br><i>by Elegance.</i></h1><p class="lead">Premium silhouettes. Refined essentials. Made for the modern man.</p><a class="btn" href="#shop">Explore Collection</a></div></section><section id="new" class="intro"><p class="eyebrow">VELORA / 01</p><h2>Quiet luxury, made everyday.</h2><p>Clean cuts, elevated textures and timeless tones — a wardrobe designed to look exceptional without trying too hard.</p></section><section id="shop" class="shop"><div class="section-head"><div><p class="eyebrow">THE COLLECTION</p><h2>Signature pieces</h2></div><span>01 — 06</span></div><div class="grid" id="products"></div></section><section id="about" class="story"><div><p class="eyebrow">OUR PHILOSOPHY</p><h2>Less noise.<br>More presence.</h2></div><p>VELORA is built around a simple belief: premium style should feel effortless. Every piece is selected to bring confidence, comfort and character into everyday dressing.</p></section></main><footer id="contact"><div><div class="logo">VELORA</div><p>Defined by Elegance.</p></div><div><p class="eyebrow">CONTACT</p><p>hello@velora.style<br>WhatsApp: +91 XXXXX XXXXX</p></div><div><p class="eyebrow">FOLLOW</p><p>Instagram · Facebook</p></div></footer><aside id="drawer"><button onclick="toggleCart()">×</button><h2>Your Bag</h2><div id="items">Your bag is empty.</div><div class="total">Total <strong>₹<span id="total">0</span></strong></div><button class="btn full" onclick="alert('Connect your payment gateway to activate checkout.')">Checkout</button></aside><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VELORA — Defined by Elegance</title>
+<meta name="description" content="VELORA — contemporary men's fashion. Defined by Elegance.">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7f5f1;color:#171717}a{text-decoration:none;color:inherit}button{font:inherit;cursor:pointer}
+header{position:sticky;top:0;z-index:10;background:rgba(247,245,241,.96);border-bottom:1px solid #ddd8d0}.nav{max-width:1180px;margin:auto;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 22px}.logo{font-size:24px;letter-spacing:5px;font-weight:700}.navlinks{display:flex;gap:24px;font-size:13px;text-transform:uppercase;letter-spacing:1px}.bag{background:#222;color:#fff;border:0;padding:10px 14px;border-radius:2px}
+.hero{min-height:570px;display:grid;place-items:center;text-align:center;padding:80px 20px;background:linear-gradient(120deg,#151515,#4b4842,#101010)}.hero h1{color:#fff;font-size:clamp(46px,9vw,96px);letter-spacing:9px;margin:0}.hero p{color:#e9e4dc;letter-spacing:3px;text-transform:uppercase;margin:20px 0 30px}.cta{background:#fff;border:0;padding:14px 25px;text-transform:uppercase;letter-spacing:1px}
+.wrap{max-width:1180px;margin:auto;padding:65px 22px}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:25px}.sectionhead h2{font-size:30px;margin:0;letter-spacing:2px}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{background:transparent;border:1px solid #cfc9c0;padding:9px 13px}.filter.active,.filter:hover{background:#222;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fff;border:1px solid #e4e0d9}.photo{aspect-ratio:4/5;background:linear-gradient(135deg,#d7d1c8,#8d8982);display:grid;place-items:center;text-align:center;color:#fff;letter-spacing:2px;font-size:12px;padding:15px}.info{padding:16px}.name{font-weight:600}.meta{display:flex;justify-content:space-between;margin-top:8px;color:#555;font-size:14px}.card button{width:100%;margin-top:14px;padding:11px;border:1px solid #222;background:#fff}.card button:hover{background:#222;color:#fff}
+.about{background:#1b1b1b;color:#fff}.about p{max-width:700px;color:#d4d0ca;line-height:1.8}footer{background:#111;color:#ddd;padding:40px 22px;text-align:center}.small{font-size:12px;color:#999}
+.drawer{position:fixed;right:0;top:0;height:100%;width:min(410px,92vw);background:#fff;z-index:30;transform:translateX(100%);transition:.25s;padding:25px;box-shadow:-8px 0 30px #0002;overflow:auto}.drawer.open{transform:translateX(0)}.drawerhead{display:flex;justify-content:space-between;align-items:center}.close{border:0;background:none;font-size:24px}.cartitem{border-bottom:1px solid #ddd;padding:14px 0}.qty{display:flex;gap:8px;align-items:center;margin-top:8px}.qty button{border:1px solid #ccc;background:#fff;width:28px;height:28px}.checkout{width:100%;padding:14px;background:#222;color:#fff;border:0;margin-top:20px}
+@media(max-width:760px){.navlinks{display:none}.grid{grid-template-columns:repeat(2,1fr)}.hero{min-height:500px}.wrap{padding:45px 15px}.sectionhead{display:block}.filters{margin-top:18px}.grid{gap:12px}.info{padding:12px}}@media(max-width:460px){.grid{grid-template-columns:1fr}.logo{font-size:20px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="logo" href="#">VELORA</a><nav class="navlinks"><a href="#shop">Shop</a><a href="#about">About</a></nav><button class="bag" onclick="openCart()">Bag (<span id="count">0</span>)</button></div></header>
+<section class="hero"><div><h1>VELORA</h1><p>Defined by Elegance</p><button class="cta" onclick="document.querySelector('#shop').scrollIntoView({behavior:'smooth'})">Explore Collection</button></div></section>
+<section id="shop" class="wrap"><div class="sectionhead"><h2>The Collection</h2><div id="filters" class="filters"></div></div><div id="products" class="grid"></div></section>
+<section id="about" class="about"><div class="wrap"><h2>Quiet luxury. Modern character.</h2><p>VELORA is a contemporary men's fashion concept built around clean silhouettes, refined essentials and understated confidence. Every piece is designed to make everyday dressing feel intentional.</p></div></section>
+<footer><div class="logo">VELORA</div><p class="small">© 2026 VELORA. Defined by Elegance.</p></footer>
+<aside id="drawer" class="drawer"><div class="drawerhead"><h2>Your Bag</h2><button class="close" onclick="closeCart()">×</button></div><div id="cart"></div><div id="total"></div><button class="checkout" onclick="checkout()">Proceed to Checkout</button></aside>
+<script>
+const products=[
+["S01","Monarch Oxford Shirt","Shirts",1899],["S02","Noir Essential Shirt","Shirts",1799],["S03","Linen Reserve Shirt","Shirts",2099],["S04","Executive Pinstripe Shirt","Shirts",2299],
+["T01","Velora Signature Tee","T-Shirts",1199],["T02","Monochrome Heavy Tee","T-Shirts",1299],["T03","Essential Pima Tee","T-Shirts",1399],
+["P01","Tailored Relaxed Trouser","Trousers",2199],["P02","Heritage Pleat Trouser","Trousers",2399],["P03","Midnight Straight Trouser","Trousers",2299],
+["J01","Selvedge Straight Jean","Jeans",2499],["J02","Urban Dark Denim","Jeans",2299],["J03","Classic Taper Jean","Jeans",2399],
+["K01","Velora Signature Jacket","Jackets",3999],["K02","Minimal Bomber Jacket","Jackets",3499],["K03","Tailored Utility Jacket","Jackets",3799],
+["A01","Leather Card Holder","Accessories",999],["A02","Signature Cap","Accessories",799]
+];
+let cart=JSON.parse(localStorage.getItem("veloraCart")||"[]");
+const cats=["All",...new Set(products.map(p=>p[2]))];
+const productsEl=document.getElementById("products"),filters=document.getElementById("filters"),cartEl=document.getElementById("cart"),total=document.getElementById("total"),drawer=document.getElementById("drawer"),count=document.getElementById("count");
+function renderFilters(){filters.innerHTML=cats.map(c=>`<button class="filter ${c==="All"?"active":""}" onclick="filterCat('${c}',this)">${c}</button>`).join("")}
+function render(list=products){productsEl.innerHTML=list.map(p=>`<article class="card"><div class="photo">${p[1].toUpperCase()}</div><div class="info"><div class="name">${p[1]}</div><div class="meta"><span>${p[2]}</span><b>₹${p[3].toLocaleString("en-IN")}</b></div><button onclick="add('${p[0]}')">Add to Bag</button></div></article>`).join("")}
+function filterCat(c,b){document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");render(c==="All"?products:products.filter(p=>p[2]===c))}
+function add(id){cart.push(id);save();openCart()}
+function save(){localStorage.setItem("veloraCart",JSON.stringify(cart));count.textContent=cart.length;renderCart()}
+function renderCart(){if(!cart.length){cartEl.innerHTML="<p>Your bag is empty.</p>";total.innerHTML="";return}let map={};cart.forEach(id=>map[id]=(map[id]||0)+1);cartEl.innerHTML=Object.entries(map).map(([id,q])=>{let p=products.find(x=>x[0]===id);return `<div class="cartitem"><b>${p[1]}</b><br>₹${p[3].toLocaleString("en-IN")} × ${q}<div class="qty"><button onclick="change('${id}',-1)">−</button><span>${q}</span><button onclick="change('${id}',1)">+</button></div></div>`}).join("");let sum=cart.reduce((s,id)=>s+products.find(p=>p[0]===id)[3],0);total.innerHTML=`<h3>Total: ₹${sum.toLocaleString("en-IN")}</h3>`}
+function change(id,n){if(n>0)cart.push(id);else{let i=cart.indexOf(id);if(i>=0)cart.splice(i,1)}save()}
+function openCart(){drawer.classList.add("open");renderCart()}function closeCart(){drawer.classList.remove("open")}
+function checkout(){if(!cart.length)return alert("Your bag is empty.");alert("Checkout and payment will be connected in the next stage.")}
+renderFilters();render();save();
+</script>
+</body></html>
