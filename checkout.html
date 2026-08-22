@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VELORA Checkout</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">VELORA</div>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main class="checkout-wrap">
+    <section class="checkout-card">
+      <h1>Checkout</h1>
+      <form id="checkoutForm">
+        <div class="grid2">
+          <input id="name" placeholder="Customer name" required />
+          <input id="mobile" placeholder="Mobile number" required />
+          <input id="city" placeholder="City" required />
+          <input id="pin" placeholder="PIN code" required />
+        </div>
+
+        <textarea id="address" placeholder="Delivery address" required></textarea>
+
+        <div class="grid2">
+          <select id="product" required>
+            <option value="">Select product</option>
+            <option value="VELORA Premium T-Shirt" data-price="799">VELORA Premium T-Shirt - ₹799</option>
+            <option value="VELORA Hoodie" data-price="1499">VELORA Hoodie - ₹1499</option>
+            <option value="VELORA Cap" data-price="499">VELORA Cap - ₹499</option>
+          </select>
+          <input id="qty" type="number" min="1" value="1" />
+        </div>
+
+        <input id="total" placeholder="Total amount" readonly />
+        <button class="btn primary" type="submit">Confirm Order</button>
+      </form>
+
+      <div id="message" class="message"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
